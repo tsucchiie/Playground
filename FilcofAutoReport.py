@@ -1,8 +1,9 @@
+
 import pandas as pd
 import time
 
 #ID
-file_id = "1ed8GdLI3W575SKtWahf5h4gDz2KywY5i"
+file_id = input("ID FILE= ")
 # URL CSV
 url = f"https://docs.google.com/spreadsheets/d/{file_id}/export?format=csv"
 
@@ -68,8 +69,8 @@ slopmnew = df.iloc[59,1]
 sloplnew = df.iloc[60,1]
 slophnew = df.iloc[61,1]
 
-tutupold = df.iloc[62,1]
-tutupnew = df.iloc[62,2]
+tutupold = df.iloc[62,2]
+tutupnew = df.iloc[62,1]
 tutuph = df.iloc[63,1]
 
 plastik1 = df.iloc[64,1]
@@ -133,6 +134,11 @@ cupjualh = df.iloc[27, 1]
 dimsum2 = df.iloc[25, 3]
 dimsum4 = df.iloc[26, 3]
 cristalin = df.iloc[27, 3]
+doubleshot = df.iloc[28,3]
+
+botol250 = df.iloc[25,5]
+botol500 = df.iloc[26,5]
+botol1000 = df.iloc[27,5]
 
 #####################################
 print("VARIABLES CHECKING UNDERWAY")
@@ -231,7 +237,7 @@ print("\n--- SCANNING IN PROGRESS ---\n")
 for key, value in variables.items():
     time.sleep(0.05)
     if value == "-":
-        print(f"{key:<18} : null")
+        print(f"{key:<18} : -")
     else:
         print(f"{key:<18} : {value} ✓")
 print("\n ALL SCANNED !!! \n")
@@ -291,9 +297,9 @@ Keterangan :
 - 
 
 *Kemasan Botol*
-- 1000 ml : - botol
-- ⁠500 ml : - botol
-- ⁠250 ml : - botol 
+- 1000 ml : {botol250} botol
+- ⁠500 ml : {botol500} botol
+- ⁠250 ml : {botol1000} botol 
 ‎
 ‎ *Snack* 
 - Dimsum 4 pcs : {dimsum4}
@@ -301,7 +307,7 @@ Keterangan :
 - ⁠Bakpao : -
 - ⁠Pop Mie : -
 - Air mineral: {cristalin}
-- Doubleshot: 
+- Doubleshot: {doubleshot}
 
 ‎ *Pengeluaran*
 - {notep1} {pengeluaran1}
@@ -318,8 +324,8 @@ Keterangan :
 ‎ Cash : ({omsetc1}+{omsetc2})-{totalp} = Rp.{totalc}
  Qris : {omsetq1}+{omsetq2} = Rp.{totalq}
  Online : Rp.{omseto} """)
- 
- 
+
+
 print(f"""
 SUCESSFULLY GENERATED!!! [STORING]
 
@@ -327,22 +333,22 @@ SUCESSFULLY GENERATED!!! [STORING]
 
 *{tanggal}*
 Bahan : 
-- KOPI POWDER : {espresso} Pack {grespresso} Gram
-- CREAMER : {creamer} Ember {grcreamer} Gram 
-- BROWN SUGAR : {brown} Botol
-- SIRUP STRAWBERRY : {strawberry} Botol
-- SIRUP LEMON : {lemon} Botol
-- SIRUP MELON : {melon} Botol
-- MILO : {milo} Pack {grmilo} Gram
-- SKM : {skm} Pack {grskm} Gram
-- GULA PASIR : {gula} Gram
-- UHT : {uht} Botol {gruht} Ml
-- CHOCO : {choco} Pack {grchoco}
-- RED VELVET : {rv} Pack
-- TARO : {taro} Pack
-- BUTTERSCOTH : {bts} Botol
-- MATCHA : {matcha} Pack {grmatcha} Gram
-- CRYSTALIN : {cristalinstoring} Botol
+- KOPI POWDER : ({espresso}) Pack ({grespresso}) Gram
+- CREAMER : ({creamer}) Kg ({grcreamer}) Gram 
+- BROWN SUGAR : ({brown}) Botol
+- SIRUP STRAWBERRY : ({strawberry}) Botol
+- SIRUP LEMON : ({lemon}) Botol
+- SIRUP MELON : ({melon}) Botol
+- MILO : ({milo}) Pack ({grmilo}) Gram
+- SKM : ({skm}) Pack ({grskm}) Gram
+- GULA PASIR : ({gula}) Gram
+- UHT : ({uht}) Botol ({gruht}) Ml
+- CHOCO : ({choco}) Pack ({grchoco})
+- RED VELVET : ({rv}) Pack
+- TARO : ({taro}) Pack
+- BUTTERSCOTH : ({bts}) Botol
+- MATCHA : ({matcha}) Pack ({grmatcha}) Gram
+- CRYSTALIN : ({cristalinstoring}) Botol
 
 Barang : 
 - CUP REGULER: [Baru: {slopmnew} slop] [Lama {slopmold} slop] {cupawalm} pcs
@@ -353,13 +359,3 @@ Barang :
 - PLASTIK 1 CUP: {plastik1}
 - PLASTIK 2 CUP: {plastik2}
 - SEDOTAN: {sedotan}""")
-
-
-
-
-
-
-
-
-
-
